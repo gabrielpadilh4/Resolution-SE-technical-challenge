@@ -1,0 +1,1 @@
+SELECT * FROM public.stores s WHERE data::json->>'tags' LIKE '%finanzas%'
