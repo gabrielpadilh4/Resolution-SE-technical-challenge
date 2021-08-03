@@ -24,6 +24,9 @@ VALUES ('1234567890',
 )
 ```
 
+After execute this sql statement, we will have a record with all the data of our ally:
+![](after_insert.png)
+
 **Obs**: This is an example, you will need to change the data above according to the ally being added
 
 ### Querying all allies with finazas tag
@@ -40,13 +43,13 @@ Result example:
 ### Adding a credential to ally
 
 After you insert the ally information to the `stores` table, you can add the credential to it using the following command:
-```sh
+``` bash
 curl -X POST -H "Content-type:application/json" --data-binary "{\"username\": \"aliado_addi\", \"password\": \"}sxh7_5}BdJ4K:Qf\"}" http://localhost:5000/allies/1234567890/credentials
 ```
 With this command a POST request is made to our API sending the username and password of the ally. When the request hits the API endpoint(**/allies/{allyId}/credentials**), the password is encryted(hashed) and the column credential from table `stores` will be updated with this password encrypted data.
 
 If everything was okay, you will see the message below:
-```sh
+``` bash
 gabrielpadilha@ubuntu-note:~/Downloads$ curl -X POST -H "Content-type:application/json" --data-binary "{\"username\": \"aliado_addi\", \"password\": \"}sxh7_5}BdJ4K:Qf\"}" http://localhost:5000/allies/1234567890/credentials
 {
   "AllyId": "1234567890", 
@@ -56,6 +59,9 @@ gabrielpadilha@ubuntu-note:~/Downloads$ curl -X POST -H "Content-type:applicatio
 gabrielpadilha@ubuntu-note:~/Downloads$ 
 
 ```
+
+After this proccess, at our database we will have something like this:
+![](after_add_credentials.png)
 
 
 If want to add the credential using a more friendly tool, i recommend postman like below:
