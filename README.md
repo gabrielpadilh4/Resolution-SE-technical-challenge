@@ -29,7 +29,7 @@ After execute this sql statement, we will have a record with all the data of our
 
 **Obs**: This is an example, you will need to change the data above according to the ally being added
 
-### Querying all allies with finazas tag
+### Querying all allies with finanzas tag
 
 When you need to query all allies that contains `finanzas` tag, run the sql below on the database and the data will be retrieved:
 
@@ -43,13 +43,13 @@ Result example:
 ### Adding a credential to ally
 
 After you insert the ally information to the `stores` table, you can add the credential to it using the following command:
-``` bash
+``` sh
 curl -X POST -H "Content-type:application/json" --data-binary "{\"username\": \"aliado_addi\", \"password\": \"}sxh7_5}BdJ4K:Qf\"}" http://localhost:5000/allies/1234567890/credentials
 ```
 With this command a POST request is made to our API sending the username and password of the ally. When the request hits the API endpoint(**/allies/{allyId}/credentials**), the password is encryted(hashed) and the column credential from table `stores` will be updated with this password encrypted data.
 
 If everything was okay, you will see the message below:
-``` bash
+``` sh
 gabrielpadilha@ubuntu-note:~/Downloads$ curl -X POST -H "Content-type:application/json" --data-binary "{\"username\": \"aliado_addi\", \"password\": \"}sxh7_5}BdJ4K:Qf\"}" http://localhost:5000/allies/1234567890/credentials
 {
   "AllyId": "1234567890", 
@@ -68,7 +68,7 @@ If want to add the credential using a more friendly tool, i recommend postman li
 ![](postman_http_request.png)
 
 ## NOTES
-- SQL script to add a new ally - [INSERT_NEW_ALLY](insert.sql).
+- SQL script to add a new ally - [INSERT_NEW_ALLY](insert.sql)
 - SQL query to list all allies with the tag "finanzas" - [ALLY_TAG_FINANZAS](select_tags_like_finanzas.sql)
 - HTTP Request that adds a given ally's credentials through our API 
 
